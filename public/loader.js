@@ -1,5 +1,40 @@
 window.onload = async () => {
     await loadRecipes();
+
+    // handle the form submit
+    document.querySelector("button").onclick = handleForm;
+}
+
+async function handleForm(event) {
+    console.log("Clicked");
+    // stops the form the default behavior
+    event.preventDefault();
+
+    // read our form values
+    const newRecipe = {
+        name: document.querySelector("#name").value,
+        ingredients: document.querySelector("#ingredients").value,
+        cookingTime: document.querySelector("#cookingTime").value,
+        instructions: document.querySelector("#instructions").value,
+    }
+    console.log(newRecipe);
+    console.log(JSON.stringify(newRecipe));
+
+    // make a Post request to the server
+    const uri = "http://localhost:3000/recipes";
+    const config = {
+        method: "post",
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newRecipe)
+    }
+
+    const response = await fetch(uri, config);
+    const json = await response.json();
+
+    console.log(json);
 }
 
 async function loadRecipes() {

@@ -9,6 +9,24 @@
     </head>
     <body>
         <h1>Recipes List</h1>
+
+        <for>
+            <label for="name">Recipe Name:</label>
+            <input type="text" id="name" name="name" value="Mushroom Risotto" required><br><br>
+            
+            <label for="ingredients">Ingredients (comma separated):</label>
+            <input type="text" id="ingredients" name="ingredients" value="arborio rice, mushrooms, vegetable broth, parmesan cheese" required><br><br>
+            
+            <label for="cookingTime">Cooking Time:</label>
+            <input type="text" id="cookingTime" name="cookingTime" value="35 minutes" required><br><br>
+            
+            <label for="instructions">Instructions:</label><br>
+            <textarea id="instructions" name="instructions" rows="4" cols="50" required>Sauté mushrooms. Add rice. Gradually stir in broth until absorbed. Finish with parmesan.</textarea><br><br>
+            
+            <button type="submit">Submit Recipe</button>
+
+        </for>
+            
         <div id="recipe-list">
             
         </div>
